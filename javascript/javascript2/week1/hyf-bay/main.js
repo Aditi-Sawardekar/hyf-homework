@@ -9,7 +9,7 @@ function renderProducts(products) {
         const myProductList = document.querySelector(".product-list")
 
         //Create li
-        const list = document.createElement("li");
+        const listItem = document.createElement("li");
 
         //Add text to li    
         list.innerHTML = `<span class="product-name">${(products[i]["name"])}</span> <br>
