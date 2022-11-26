@@ -1,0 +1,18 @@
+body {
+    height: 700px;
+    background-color: red;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right , red, orange, yellow);
+}
+.container-body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    line-height: 2rem;
+}
+.display-spirit-name{
+    color: white;
+}
