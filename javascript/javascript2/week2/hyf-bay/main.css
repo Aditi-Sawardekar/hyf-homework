@@ -1,0 +1,157 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #F9FBFD;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body,
+h1,
+h2 {
+    margin: 0rem 2rem;
+}
+
+:root {
+    --cherryred: rgb(210, 4, 45);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    /* Shorthand property for flex-direction and flex-wrap */
+    gap: 1rem;
+}
+
+.logo {
+    padding: 1rem 0rem;
+    width: 10%;
+}
+
+.logo-image {
+    width: 90%;
+    height: 80%;
+    margin-left: 0.25rem;
+}
+
+.nav-bar {
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    /* To display horizontal nav bar */
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0rem;
+    /* Add space to top and bottom of nav bar */
+    margin: 0rem 1rem;
+}
+
+.navigation li {
+    width: 30%
+}
+
+li a {
+    text-decoration: none;
+    /* Remove underline from the nav-bar */
+    padding-right: 0.8rem;
+    position: relative;
+    transition: all ease-in-out 250ms;
+    /* Same as transition for underline */
+}
+
+li a::after {
+    /*To create the underline effect on nav-bar */
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.5rem;
+    width: 0%;
+    /* So that underline is not visible now*/
+    background-color: var(--cherryred);
+    bottom: -1rem;
+    /* To add spacce between nav-bar and underline*/
+    transition: all ease-in-out 250ms;
+}
+
+li a:hover::after {
+    width: 90%;
+}
+
+li a:hover {
+    color: var(--cherryred);
+}
+
+.shopping-cart {
+    width: 30%;
+}
+
+.product-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.product-list-item {
+    width: 30%;
+    margin: 0.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 11rem;    
+}
+
+.product-name {
+    color: blue;
+    font-size: 1.5rem;
+    font-weight: 550;
+    background-color: aqua;
+}
+
+.search-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.search-bar {
+    margin-top: 1rem;
+    gap: 3rem;
+    /* Check later on gap between flex-items */
+}
+
+input {
+    font-size: 1rem;
+}
+
+.display-items {
+    margin-top: 1rem;
+}
+
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5%;
+}
+
+.discountImage {
+    width: 50%;
+    height: 5rem;
+}
+
+.todays-offer {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 1.5rem;
+    font-weight: 550;
+    margin: 1%;
+    justify-content: space-between;
+}
