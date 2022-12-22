@@ -26,7 +26,7 @@ const numberOfLetters = countDanishLetters(danishString)
 const danishString2 = "Blå grød med røde bær";
 const numberOfLetters2 = countDanishLetters(danishString2)
 
-/*
+// Suggested Code
 function countDanishLetters(string) {
     const counts = {Å: null, Æ: null, Ø: null};
     let total = 0;
@@ -38,27 +38,28 @@ function countDanishLetters(string) {
     counts.total = total;
     return counts;
 }
-*/
 
+/*
+// Original Code -> Submitted
 function countDanishLetters(string) {
     let countÅ
     let countÆ
     let countØ
 
     if (string.includes("æ")) {
-        countÆ = string.match(/æ/gi || []).length;
+        countÆ = string.match((/æ/gi)|| []).length;
     } else {
         countÆ = 0
     }
 
     if (string.includes("ø")) {
-        countØ = string.match(/ø/gi || []).length;
+        countØ = string.match((/ø/gi) || []).length;
     } else {
         countØ = 0
     }
 
     if (string.includes("å")) {
-        countÅ = string.match(/å/gi || []).length;
+        countÅ = string.match((/å/gi) || []).length;
     } else {
         countÅ = 0
     }
@@ -66,7 +67,7 @@ function countDanishLetters(string) {
     return (`total: ${countÆ + countØ + countÅ} , æ: ${countÆ}, ø: ${countØ}, å: ${countÅ}`)
 
 }
-
+*/
 console.log(numberOfLetters);
 // returns {total: 1 , æ: 0, ø: 0, å: 1}
 
