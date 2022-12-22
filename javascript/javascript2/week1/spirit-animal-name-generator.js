@@ -1,50 +1,20 @@
 //Spirit animal name generator
-const spiritAnimal = ["The Lion", "The Cheetah", "The Horse", "The Rabbit", "The Elephant", "The Camel", "The Panda", "The Dog", "The Deer", "The Cat"]
-console.log(spiritAnimal.length)
 
-const yourSpiritAnimal = [
-    {
-        animal: "The Cheetah",
-        qualities: "Quick thinking, flexible, quick-witted"
-    },
-    {
-        animal: "The Lion",
-        qualities: "Natural-born leader, courageous, powerful "
-    },
-    {
-        animal: "The Horse",
-        qualities: "Adventurous, independent, friendly "
-    },
-    {
-        animal: "The Rabbit",
-        qualities: "Sensitive, creative, clever"
-    },
-    {
-        animal: "The Elephant",
-        qualities: "Strong, loyal, proud"
-    },
-    {
-        animal: "The Camel",
-        qualities: "Patient, committed, focused"
-    },
-    {
-        animal: "The Panda",
-        qualities: "Strong, loyal, proud"
-    },
-    {
-        animal: "The Dog",
-        qualities: "Loyal, brave, protective"
-    },
-    {
-        animal: "The Deer",
-        qualities: "Graceful, elegant, compassionate"
-    },
-    {
-        animal: "The Cat",
-        qualities: "Secretive, observant, curious"
-    }
+const yourSpiritAnimalObject = {
+    "The Lion": "Natural-born leader, courageous, powerful ",
+    "The Cheetah":"Quick thinking, flexible, quick-witted",    
+    "The Horse": "Adventurous, independent, friendly ",
+    "The Rabbit":"Sensitive, creative, clever",
+    "The Elephant":"Strong, loyal, proud",
+    "The Camel": "Patient, committed, focused",
+    "The Panda": "Strong, loyal, proud",
+    "The Dog": "Loyal, brave, protective",
+    "The Deer": "Graceful, elegant, compassionate",
+    "The Cat": "Secretive, observant, curious"        
+}
 
-]
+const spiritAnimal = Object.keys(yourSpiritAnimalObject)
+
 //Select the button
 const submitBtn = document.querySelector("#submit");
 
@@ -61,14 +31,15 @@ function displaySpiritAnimal(event) {
     if ((firstName === "")||(typeof firstName !=="string")) {
         alert("Error! Please enter the name")
     } else {
-        const randomNumber = [Math.floor(Math.random() * yourSpiritAnimal.length)];
+        const randomNumber = [Math.floor(Math.random() * spiritAnimal.length)];
 
         const output = document.querySelector("#display-name");
         output.innerHTML =
-            (`${firstName} - ${(yourSpiritAnimal[randomNumber]["animal"])}`);
+        (`${firstName} - ${(spiritAnimal[randomNumber])}`);
 
         const displayQualities = document.querySelector("#display-qualities");
-        displayQualities.innerHTML = (`You are ${(yourSpiritAnimal[randomNumber]["qualities"])}`)
+        displayQualities.innerHTML = (`You are ${(yourSpiritAnimalObject[spiritAnimal[randomNumber]])}`)
+    
     }
 };
 
