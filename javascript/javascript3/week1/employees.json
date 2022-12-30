@@ -1,0 +1,39 @@
+
+{
+    "Employees" : [
+{
+    "employeeName": "Peter ",
+    "employeeID": 123,
+    "isHYFStudent": true,
+    "technologies": [
+        "SAP",
+        "JavaScript",
+        "React",
+        "Nodejs"
+    ]    
+},
+{
+    "employeeName": "Isabella ",
+    "employeeID": 456,
+    "isHYFStudent": false,
+    "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+    ]    
+},
+{
+    "employeeName": "Anna",
+    "employeeID": 987,
+    "isHYFStudent": true,
+    "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SQL",
+        "React",
+        "Nodejs"
+    ]    
+}
+
+]}  
