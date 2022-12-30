@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    margin: 0 2%;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.display-weather {
+    background-color: skyblue;
+    padding: 2rem 0rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 0.5rem;
+    visibility: hidden;
+}
+
+.weather-icon-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    width: 20%;
+}
+
+.weather-image {
+    position: relative;
+    bottom: 1.5rem;
+}
+
+.weather-description {
+    position: relative;
+    bottom: 2.1rem;
+}
+
+.middle-of-display-weather {
+    width: 20%;
+}
+
+.right-side-of-display-weather {
+    width: 45%;
+    font-size: 0.9rem;
+}
+
+.location {
+    font-size: 1rem;
+}
+
+.temperature {
+    font-size: 3rem;
+}
+
+.feels-like {
+    font-size: 1rem;
+}
+
+.display-sunrise-sunset {
+    background-color: skyblue;
+    width: 50%;
+    visibility: hidden;
+}
+
+.display-sunrise-sunset-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sunrise,
+.sunset {
+    width: 20%;
+    z-index: 1;
+}
+
+.sun-position {
+    height: 250px;
+    border: 1px solid #CCC;
+    margin: auto;
+    background-color: skyblue;
+    overflow: hidden;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: auto;
+    animation: circle 8s linear infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(40deg) translate(-165px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(140deg) translate(-165px) rotate(-180deg);
+    }
+}
+
+/* Mobile devices: 320px — 480px  */
+@media only screen and (max-width: 480px) {
+    .input-box {
+        width: 100%;
+        line-height: 2rem;
+    }
+
+    #city,
+    button {
+        width: 31%;
+    }
+
+    .display-weather,
+    .display-sunrise-sunset {
+        width: 100%;
+    }
+
+    .sun-position {
+        height: 190px;
+    }
+
+    .display-sunrise-sunset-time {
+        justify-content: space-between;
+    }
+}
+
+/* iPads, Tablets: 481px — 768px */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    .input-box {
+        width: 60%;
+        line-height: 2rem;
+    }
+
+    #city,
+    button {
+        width: 31%;
+    }
+
+    .display-weather,
+    .display-sunrise-sunset {
+        width: 70%;
+    }
+
+    .sun-position {
+        height: 190px;
+    }
+
+    .display-sunrise-sunset-time {
+        justify-content: space-between;
+    }
+}
+
+
+/* Small screens, laptops: 769px — 1024px  (and above) */
+@media only screen and (min-width: 768px) {
+
+    .input-box {
+        width: 50%;
+    }
+
+    #city,
+    button {
+        width: 18%;
+    }
+
+    .display-weather,
+    .display-sunrise-sunset {
+        width: 50%;
+    }
+}

@@ -1,0 +1,36 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+input{
+    width: 10%;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+#search-for-gif{
+    padding: 0 0.5rem;
+}
+
+.section-center, .input-box {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.input-box{
+flex-flow: row wrap;
+}
