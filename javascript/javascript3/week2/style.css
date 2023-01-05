@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, HelveticaNeue, Arial, sans-serif;
+}
+
+.background-image {
+    width: 100%;
+    height: 25rem;
+    z-index: -1;
+    /* To place image behind the text */
+    position: relative;
+    bottom: 22rem;
+}
+
+h1 {
+    margin: 1rem 0 0.5rem 2rem;
+}
+
+/* To select all h3 inside .output-data*/
+.output-data>h3,
+.output-data>div {
+    margin: 0.5rem 0 0 2rem;
+    font-weight: 400;
+}
+
+.display-currency-from {
+    color: rgb(112, 117, 122);
+    font-size: 1.2rem;
+    padding-top: 1rem;
+}
+
+.countryToData {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    font-size: 2rem;    
+}
+
+.display-date-time {
+    color: rgb(112, 117, 122);
+    font-size: 0.75rem;
+    width: 40%;
+}
+
+/* To select div inside .input-data*/
+.input-data>div {
+    margin: 1rem 0 0 2rem;
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    width: 28%; 
+}
+
+button {
+    margin: 1rem 0 0 2rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0);
+    font-weight: 600;
+}
+
+.input,
+.select,
+select#currency-from.drop-list,
+select#currency-to.drop-list {
+    background: rgba(0, 0, 0, 0);
+    font-size: 1rem;
+    font-weight: 400;
+    border-style: hidden;
+}
+
+select#currency-from.drop-list,
+select#currency-to.drop-list {
+    padding-right: 0;
+}
+
+.input {
+    caret-color: rgb(26, 115, 232);
+    cursor: text;
+    width: 50%;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+}
+
+.select {
+    width: 65%;
+    cursor: default;
+    padding: 0.2rem 0rem 0.2rem 1rem;
+    margin-right: 0.5rem;
+}
+
+/* Mobile devices: 320px — 480px  */
+@media only screen and (max-width: 480px) {}
+.input-data>div{
+    width: 35%;
+}
+
+
+/* iPads, Tablets: 481px — 768px */
+@media screen and (max-width: 768px) and (min-width: 481px) {}
+
+
+/* Small screens, laptops: 769px — 1024px  (and above) */
+@media only screen and (min-width: 768px) {
+    .input-data>div{
+        width: 20%;        
+    }
+    h1,.output-data>h3,
+    .output-data>div, .input-data>div, button{
+        margin-left: 10%;
+    }
+}
