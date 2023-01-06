@@ -7,11 +7,20 @@ const moviesData = getMovies();
 const movieTitles = moviesData.map((element) => {
     return (element.title);
 });
+console.log (moviesData);
 
 const shortMovieTitles = movieTitles.filter((element) => {
     return ((element.length) < 5)
 })
 console.log(shortMovieTitles);
+
+// Correction 
+const shortMovies = moviesData.filter ((element)=>{
+    if ((element.title).length <5){
+        return element
+    }
+})
+console.log (shortMovies)
 
 //2. Create an array of movie titles with long movie titles
 const longMovieTitles = movieTitles.filter((element) => {
