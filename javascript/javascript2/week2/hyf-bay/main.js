@@ -2,9 +2,7 @@ console.log("Script loaded");
 const displayItems = document.querySelector(".product-list")
 const products = getAvailableProducts();
 
-window.addEventListener("DOMContentLoaded", function () {
-    //Load /Display the items - Call the function
-    // You need to pass the parameter to make everything work.
+
     renderProducts(products);
 
     function renderProducts(products) {
@@ -65,12 +63,12 @@ window.addEventListener("DOMContentLoaded", function () {
         const maxPriceValue = document.querySelector("#max").value;
         
         const maxPrice = products.filter((element) => {
-            return ((element.price) < maxPriceValue)
+            return ((element.price) <= maxPriceValue)
         })
 
-        if (searchValue !== "") {
+        if (searchValue) {
             renderProducts(searchedProduct);
-        } else if (maxPriceValue !== "") {
+        } else if (maxPriceValue) {
             renderProducts(maxPrice);
         } else {
             renderProducts(products);
@@ -78,6 +76,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
     } //End of function searchItems
    
-}); // End of window addEventListener DOMContentLoaded
+
 
 
