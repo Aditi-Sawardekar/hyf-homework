@@ -1,0 +1,33 @@
+body {
+    height: 700px;
+    background-color: red;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.container-body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    line-height: 2.8rem;
+}
+
+.display-spirit-name {
+    color: white;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+input {
+    padding: 8px 20px;
+}
+
+input[type=button]{
+    border-radius: 5px;
+}
