@@ -25,6 +25,7 @@ WHERE status.name = "Done"
 GROUP BY task.id;
 
 -- Databases lesson 2 Homework
+-- Part 1 - Working with tasks
 -- Write the following sql queries:
 
 -- Add a task with these attributes: title, description, created, updated, due_date, status_id, user_id
