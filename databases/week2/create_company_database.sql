@@ -9,10 +9,10 @@ USE `company_database`;
 -- columns: id, first_name, last_name, date_of_birth, contact_number;
 CREATE TABLE IF NOT EXISTS `employee` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`first_name` varchar(255) NOT NULL,
-	`last_name` varchar(255) NOT NULL,
-	`date_of_birth` DATETIME NOT NULL,
-	`contact_number` DATETIME NOT NULL,
+	`first_name` varchar(40) NOT NULL,
+	`last_name` varchar(40) NOT NULL,
+	`date_of_birth` DATE NOT NULL,
+	`contact_number` varchar(15) NOT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 CREATE TABLE IF NOT EXISTS `address_code` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`post_code` int(10) unsigned NOT NULL,
-	`city` varchar(255) NOT NULL,
-	`country` varchar(255) NOT NULL,
+	`city` varchar(60) NOT NULL,
+	`country` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `address_code` (
 -- columns: id, street_name, address_code_id;
 CREATE TABLE IF NOT EXISTS `address` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`street_name` varchar(255) NOT NULL,
+	`street_name` varchar(100) NOT NULL,
 	`address_code_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_address_address_code` FOREIGN KEY (`address_code_id`) REFERENCES `address_code` (`id`) ON DELETE CASCADE
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `employee_address` (
 -- columns: id, name;
 CREATE TABLE IF NOT EXISTS `department` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(255) NOT NULL,
+	`name` varchar(50) NOT NULL,
 	 PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS `department` (
 -- table: designation;
 -- columns: id, name;
 CREATE TABLE IF NOT EXISTS `designation` (
-	`id` varchar(255) NOT NULL,
-	`name` varchar(255) NOT NULL,
+	`id` varchar(10) NOT NULL,
+	`name` varchar(60) NOT NULL,
 	 PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `designation` (
 -- columns: id, street_name, address_code_id;
 CREATE TABLE IF NOT EXISTS `location` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`street_name` varchar(255) NOT NULL,
+	`street_name` varchar(100) NOT NULL,
 	`address_code_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_location_address_code` FOREIGN KEY (`address_code_id`) REFERENCES `address_code` (`id`) ON DELETE CASCADE
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `employee_company_data` (
 	`id` int(10) unsigned NOT NULL,
     `employee_id` int(10) unsigned NOT NULL,
 	`department_id` int(10) unsigned NOT NULL,
-    `designation_id` varchar(255) NOT NULL,
+    `designation_id` varchar(10) NOT NULL,
     `location_id` int(10) unsigned NOT NULL,
   PRIMARY KEY(`id`),
   CONSTRAINT `fk_employee_company_data_employee` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
