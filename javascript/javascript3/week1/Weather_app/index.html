@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather-App</title>
+</head>
+
+<body>
+    <h1>Weather-App</h1>
+    <h2>JavaScript3 - Week1</h2>
+
+    <div class="input-box">
+        <label for="city">Select your City:</label>
+        <input list="city-names" id="city" name="city">
+
+        <datalist id="city-names">
+            <option value="Copenhagen">
+            <option value="Mumbai">
+            <option value="Oslo">   
+            <option value="Stockholm">
+            <option value="London">
+        </datalist>       
+
+        <button id="search" class="button" data-category="search">Todays Weather</button>
+        <button id="current-location" class="button" data-category="current-location">Current location</button>
+        
+    </div>
+
+    <main class="display-weather">
+        <div class="weather-icon-description">
+            <img class="weather-image" src="" alt="weather icons">
+            <h4 class="weather-description"></h4>
+        </div>
+
+        <div class="middle-of-display-weather">
+            <h3 class="location"></h3>
+            <h3 class="temperature"></h3>
+            <h3 class="feels-like"></h3>
+        </div>
+
+        <div class="right-side-of-display-weather">
+            <h3 class="minimum-temperature"></h3>
+            <h3 class="maximum-temperature"></h3>
+            <h3 class="wind"></h3>
+            <h3 class="cloudy"></h3>
+            <h3 class="location-lat"></h3>
+        </div>       
+    </main>
+
+    <div class="display-sunrise-sunset">
+        <div class="sun-position">
+            <div class="circle"></div>
+        </div>
+
+        <div class="display-sunrise-sunset-time">
+            <h3 class="sunrise"></h3>
+            <h3 class="sunset"></h3>
+        </div>
+    </div>
+
+    <script src="./secret.js"></script>
+    <script src="./geoloc.js"></script>
+    <script src="./weather-app.js"></script>
+
+</body>
+
+</html>
