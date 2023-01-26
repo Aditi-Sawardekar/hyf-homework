@@ -6,27 +6,27 @@ SELECT meal.id AS 'Meal Id', meal.title AS 'Meals'
 FROM meal;
  
 -- Add a new meal
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (1, 'Vegeterian Indian Menu', 'bnbghdjshkjhk dghsj sghg', 'Mumbai', '2023-01-15 19:00:00', 8, 150.00, '2023-01-05');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('Vegeterian Indian Menu', 'bnbghdjshkjhk dghsj sghg', 'Mumbai', '2023-01-15 19:00:00', 8, 150.00, '2023-01-05');
 
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (2, 'Non Vegeterian Indian Menu', 'Chicken Meal', 'Delhi', '2023-01-20 18:30:00', 10, 200.00, '2023-01-10');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('Non Vegeterian Indian Menu', 'Chicken Meal', 'Delhi', '2023-01-20 18:30:00', 10, 200.00, '2023-01-10');
 
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (3, 'Fish Meal', 'Fish Meal', 'Goa', '2023-01-22 18:30:00', 10, 220.00, '2023-01-11');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('Fish Meal', 'Fish Meal', 'Goa', '2023-01-22 18:30:00', 10, 220.00, '2023-01-11');
 
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (4, 'Danish Meal', 'sdhgjj', 'Copenhagen', '2023-01-24 18:30:00', 20, 250.00, '2023-01-14');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('Danish Meal', 'sdhgjj', 'Copenhagen', '2023-01-24 18:30:00', 20, 250.00, '2023-01-14');
 
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (5, 'ABC Meal', 'poritoik', 'wrteus', '2023-01-24 18:00:00', 5, 220.00, '2023-01-14');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('ABC Meal', 'poritoik', 'wrteus', '2023-01-24 18:00:00', 5, 220.00, '2023-01-14');
 
 	-- Deleted later using query
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (6, 'XYZ Meal', 'kjfhjk', 'kdjkk', '2023-01-20 18:00:00', 2, 220.00, '2023-01-16');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('XYZ Meal', 'kjfhjk', 'kdjkk', '2023-01-20 18:00:00', 2, 220.00, '2023-01-16');
 
-insert into meal (id, title, description, location, meal_date_time, max_reservations, price, created_date) 
-values (7, 'Vegan Meal', 'fkjiero', 'oi4ow3d', '2023-01-25 18:15:00', 15, 180.00, '2023-01-20');
+insert into meal (title, description, location, meal_date_time, max_reservations, price, created_date) 
+values ('Vegan Meal', 'fkjiero', 'oi4ow3d', '2023-01-25 18:15:00', 15, 180.00, '2023-01-20');
 
 -- Get a meal with any id, fx 1
 SELECT * 
@@ -39,11 +39,7 @@ UPDATE meal
 SET description = REPLACE(description,'bnbghdjshkjhk dghsj sghg','Maharashtrian Vegeterian Meal')           
 WHERE id = 1;
 	
-    -- To check the updation
-    SELECT * 
-	FROM meal
-	WHERE id = 1;
-
+    
 -- Delete a meal with any id, fx 1
 	-- Deleted a task with id = 3 
 DELETE FROM meal WHERE id= 6;
@@ -83,11 +79,7 @@ UPDATE reservation
 SET number_of_guests = REPLACE(number_of_guests,2, 4)           
 WHERE id = 2;
 	
-    -- To check the updation
-    SELECT * 
-	FROM reservation
-	WHERE id = 2;
-
+   
 -- Delete a reservation with any id, fx 1
 DELETE FROM reservation WHERE id= 4;
 
@@ -122,10 +114,6 @@ UPDATE review
 SET title = REPLACE(title,'Excellent Sea Food', 'Excellent Fresh Fish Food')         
 WHERE id = 1;
 	
-    -- To check the updation
-    SELECT * 
-	FROM review
-	WHERE id = 1;
-
+   
 -- Delete a review with any id, fx 1
 DELETE FROM review WHERE id= 2;
