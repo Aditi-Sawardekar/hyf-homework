@@ -1,18 +1,19 @@
 -- ADDITIONAL QUERIES
 -- Get meals that has a price smaller than a specific price fx 90
-SELECT meal.id AS 'Meal ID', meal.title AS 'Meal Name', meal.price AS 'Price'
+SELECT meal.id , meal.title , meal.price
 FROM meal
 WHERE meal.price < 200; 
 
 -- Get meals that still has available reservations
-SELECT meal.id AS 'Meal ID', meal.title AS 'Meal Name', meal.meal_date_time AS 'Meal Date and Time'
+SELECT meal.* , SUM(reservation.number_of_guests) AS Total_reserved_yet
 FROM meal
-WHERE NOT EXISTS (
-SELECT * FROM reservation
-WHERE meal.id = reservation.meal_id);
+INNER JOIN reservation
+ON meal.id = reservation.meal_id
+GROUP BY reservation.meal_id
+HAVING meal.max_reservations > Total_reserved_yet;
 
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
-SELECT meal.id AS 'Meal ID', meal.title AS 'Meal Name'
+SELECT meal.id , meal.title
 FROM meal
 WHERE title like '%Indian%';
 
@@ -27,7 +28,7 @@ FROM meal
 LIMIT 5;
 
 -- Get the meals that have good reviews
-SELECT meal.id AS 'Meal ID', meal.title AS 'Meal Name', review.title AS 'Review Title', review.description AS 'Review', review.stars AS 'Stars'
+SELECT meal.id , meal.title , review.title , review.description , review.stars
 FROM meal
 INNER JOIN review
 ON meal.id = review.meal_id
@@ -35,7 +36,7 @@ WHERE review.stars >= 3;
 	-- Do we need to create a seperate table stars with column star.id and star.name (Bad, Average, Good, Very Good, Excellent)
 
 -- Get reservations for a specific meal sorted by created_date
-SELECT meal.id AS 'Meal ID', meal.title AS 'Meal Name', reservation.id AS 'Reservation ID', reservation.number_of_guests AS 'Number of Guests', reservation.created_date AS 'Reserved On'
+SELECT meal.id , meal.title , reservation.id , reservation.number_of_guests , reservation.created_date 
 FROM reservation
 INNER JOIN meal
 ON reservation.meal_id = meal.id
