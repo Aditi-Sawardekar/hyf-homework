@@ -1,7 +1,6 @@
 const getNumbers = (process.argv[2]);
 if (getNumbers === undefined){
-    console.log("Enter numbers")
-    return
+    console.log("Enter numbers")    
 }else{
     const myArray = (getNumbers.trim()).split(",");
     const numberArray = myArray.map(Number);
