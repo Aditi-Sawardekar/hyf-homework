@@ -44,7 +44,7 @@ const inputSaved = JSON.parse(localStorage.getItem("input"));
 // If yes - display it as default.
 if (inputSaved) {
     currencyFromInput.value = inputSaved["country-from"];
-    currencyToInput.value = inputSaved["country-to"];    
+    currencyToInput.value = inputSaved["country-to"];
     displayCurrencyFrom.innerHTML = `1 ${currencyFromInput.value} equals`;
 }
 //-------------------------------------------------//
@@ -54,15 +54,15 @@ const exchangeRatesData = async () => {
 
     // When the convert button is clicked, calculate currency exchange.
     let baseCurrency = currencyFromInput.value;
-   
+
     // If location is blank, then default currency = "EUR"
-    if (baseCurrency == "") {
+    if (baseCurrency === "") {
         console.log("True");
         baseCurrency = "EUR"
     } else {
-        baseCurrency = currencyFromInput.value;        
+        baseCurrency = currencyFromInput.value;
     }
-    
+
     try {
         const response = await fetch(`${BASE_URL}/v6/${API_KEY}/latest/${baseCurrency}`)
         console.log(response.status);  //200 (Should be between 200 and 299)
@@ -79,16 +79,16 @@ const exchangeRatesData = async () => {
 const saveToLocalStorage = async () => {
     const data = await exchangeRatesData();
 
-    const exchangeData = await (data["conversion_rates"])
+    const exchangeData = (data["conversion_rates"])
     let countryCode = Object.keys(data["conversion_rates"])
-    
+
     let rate = Object.values(data["conversion_rates"])
-   
+
     const exchangeInfo = {
         "countryCode": countryCode,
         "rate": rate
     }
-    
+
     const input = {
         "country-from": "EUR",
         "country-to": "DKK"
@@ -106,33 +106,34 @@ saveToLocalStorage()
 
 // Extract Data - To get exchange rates
 const display = async (event) => {
-    const data = await exchangeRatesData().then((data) => {
-        
-        // To display currency data at top of page
-        displayCurrencyFrom.innerHTML = `1 ${currencyFromInput.value} equals`;        
-        displayCurrencyTo.innerHTML = (selectCountryTo.value);
+    const data = await exchangeRatesData()
 
-        // To get the country code of the country to
-        const countryToCode = selectCountryTo.value
+    // To display currency data at top of page
+    displayCurrencyFrom.innerHTML = `1 ${currencyFromInput.value} equals`;
+    displayCurrencyTo.innerHTML = (selectCountryTo.value);
 
-        // To get and display conversion rate
-        const conversionRate = ((data["conversion_rates"][countryToCode]).toFixed(2))
-        displayConversionRate.innerHTML = conversionRate;
+    // To get the country code of the country to
+    const countryToCode = selectCountryTo.value
 
-        // To get the amount value entered in country from
-        // To add amount to convert -> 1 or 10 etc
-        const amountFrom = document.querySelector("#amount-from").value;
-        console.log (amountFrom);
+    // To get and display conversion rate
+    const conversionRate = ((data["conversion_rates"][countryToCode]).toFixed(2))
+    displayConversionRate.innerHTML = conversionRate;
 
-        // To display calculated amount when the number in base currency is changed
-        displayConvertedAmount.value = amountFrom * conversionRate;
-        
-        // To display Date and Time:
-        displayDateAndTime.innerHTML = new Date();
-        console.log (data["time_last_update_utc"])    
+    // To get the amount value entered in country from
+    // To add amount to convert -> 1 or 10 etc
+    const amountFrom = document.querySelector("#amount-from").value;
+    console.log(amountFrom);
 
-    })
+    // To display calculated amount when the number in base currency is changed
+    displayConvertedAmount.value = amountFrom * conversionRate;
+
+    // To display Date and Time:
+    displayDateAndTime.innerHTML = new Date();
+    console.log(data["time_last_update_utc"])
+
+
 }
+
 
 display()
 
