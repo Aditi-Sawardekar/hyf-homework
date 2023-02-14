@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Currency Calculator</h1>
+    <main class="currency-converter">
+
+        <div class="output-data">
+            <h3 class="display-currency-from"></h3>
+            <div class="countryToData">
+                <h3 class="display-conversion-rate"></h3>
+                <h3 class="display-currency-to"></h3>
+            </div>
+            
+            <h3 class="display-date-time"></h3>
+        </div>
+
+        <div class="input-data">
+            <div >
+                <label for="amount-from"></label>
+                <input type="number" id="amount-from" class="input" value="1" min="0" max=">0">
+                
+                <label for="currency-from" class="currency-from"></label>
+                <select name="currency" id="currency-from" class="drop-list">
+                
+                </select>            
+            </div>
+
+            <div>
+                <label for="amount-to"></label>
+                <input type="text" id="amount-to" class="input" value="">
+
+                <label for="currency-to" class="currency-to"></label>
+                <select name="currency" id="currency-to" class="drop-list">
+                 
+                </select>
+            </div>
+        </div>
+        <button id="convert" class="button">Convert</button> 
+       <img class="background-image" src="./images/currency_converter.jpeg" alt="">
+       
+    </main>
+
+    <script src="./secret.js"></script>
+    <script src="./currencyCalculator.js"></script>
+</body>
+</html>
