@@ -17,6 +17,12 @@ const getScreenshot = async (event) => {
     if (!searchInput) {
         alert("Please enter a url");
         return;
+    } else{
+        const match = "http"
+        const regex = new RegExp(match, 'gi');        
+        if ((regex.test(searchInput)) === false){
+            alert("Please enter a valid url")
+        }        
     }
 
     const XRapidAPIHost = "website-screenshot6.p.rapidapi.com";
