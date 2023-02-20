@@ -18,8 +18,8 @@ const getScreenshot = async (event) => {
         alert("Please enter a url");
         return;
     } else{
-        const match = "http"
-        const regex = new RegExp(match, 'gi');        
+        const regex = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/gi;
+    
         if ((regex.test(searchInput)) === false){
             alert("Please enter a valid url")
         }        
