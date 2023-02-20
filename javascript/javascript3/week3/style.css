@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0 3%;
+    /*
+    border: 1px solid red;
+    */
+}
+
+body{
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 1rem;    
+}
+
+.container{
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;    
+}
+
+.input-data{
+    width:90%;
+    display:flex;
+    justify-content: center;
+    margin: 0.5rem 0rem;
+}
+
+.screenshot-container{
+    display: flex;
+    flex-flow: column nowrap;
+    gap:1rem;
+    height:90%;
+    width:90%;
+    margin: 1rem 0rem;    
+}
+
+.delete-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.delete{
+    background-color: red;
+    padding: 0.2rem 1rem;
+}
