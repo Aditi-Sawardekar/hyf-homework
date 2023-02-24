@@ -5,10 +5,6 @@ const router = express.Router();
 const apiRouter = express.Router();
 const contactsAPIRouter = express.Router();
 
-// http://localhost:3000/api/contacts/
-// http://localhost:3000/api/contacts/?sort=first_name%20ASC
-// http://localhost:3000/api/contacts/?sort=last_name%20DESC
-
 contactsAPIRouter.get("/", async (req, res) => {
     let query = database.select("*").from("contacts");
    
