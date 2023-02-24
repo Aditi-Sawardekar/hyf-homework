@@ -9,8 +9,8 @@ contactsAPIRouter.get("/", async (req, res) => {
     let query = database.select("*").from("contacts");
    
     if ("sort" in req.query) {
-        const validTags = ["first_name ASC", "first_name DESC", "last_name ASC", "last_name DESC"]
-        const orderBy = req.query.sort.toString();
+        const validTags = ["first_name asc", "first_name desc", "last_name asc", "last_name desc"]
+        const orderBy = req.query.sort.toString().toLocaleLowerCase();
        
         if (!validTags.includes(orderBy)){
             console.log("SQL Injection");
