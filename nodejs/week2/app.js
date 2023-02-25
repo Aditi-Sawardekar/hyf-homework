@@ -18,11 +18,9 @@ app.get("/search", (req, res) => {
     if (input === undefined) {
         res.send(documents)
     } else {
-        const search = input.toLowerCase();
-
+        const regex = new RegExp(input, 'i');
         const filteredItems = documents.filter((item) => {
-            const result = ([Object.values(item)].toString().includes(search));
-            return (result);
+            return ((Object.values(item)).find(element => regex.test(element)))
         });
         res.send(filteredItems)
     }
@@ -42,7 +40,7 @@ app.get("/documents/:id", (req, res) => {
 app.post("/search", (req, res) => {
     const input = (req.query.q);
     const [field] = Object.values(req.body);
-    
+
     try {
         if (input) {
             const search = input.toLowerCase();
@@ -51,11 +49,11 @@ app.post("/search", (req, res) => {
                 const result = ([Object.values(item)].toString().includes(search));
                 return (result);
             });
-            
+
             res.send(filteredItems)
         } else if (field) {
             const [search] = Object.entries(field)
-            
+
             const filteredItems = documents.filter((item) => {
                 const result = ([Object.entries(item)].toString().includes(search));
                 return (result);
