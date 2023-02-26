@@ -1,9 +1,10 @@
-const express = require("express");
+import express from 'express';
 const app = express();
 const port = process.env.PORT || 3000;
 
 // To import documents.json
-const documents = require("./documents.json")
+//const documents = require("./documents.json")
+import documents from "./documents.json" assert { type: "json" };
 
 // Support parsing JSON requests
 app.use(express.json());
