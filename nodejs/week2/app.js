@@ -10,29 +10,50 @@ import documents from "./documents.json" assert { type: "json" };
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("This is a search engine");
+    res.status(200).send("This is a search engine");
 });
 
 // http://localhost:3000/search?q=HELLO
 app.get("/search", (req, res) => {
     const input = (req.query.q)
-    if (input === undefined) {
-        res.send(documents)
-    } else {
-        const regex = new RegExp(input, 'i');
-        const filteredItems = documents.filter((item) => {
-            return ((Object.values(item)).find(element => regex.test(element)))
-        });
-        res.send(filteredItems)
+    try {
+        if (input === undefined) {
+            return res.send(documents)
+        } else {
+            const regex = new RegExp(input, 'i');
+            const filteredItems = documents.filter((item) => {
+                return ((Object.values(item)).find(element => regex.test(element)))
+            });
+
+            if (!filteredItems.length) {
+                return res.status(404).send();
+            }
+            return (res.status(200).send(filteredItems))
+        }
+    }
+    catch (error) {
+        res.status(500).send({ error: 'Something failed!' })
     }
 });
 
 // http://localhost:3000/documents/2
 app.get("/documents/:id", (req, res) => {
     const id = req.params.id;
-    console.log(id);
-    const searchID = documents.find(values => values.id = id);
-    res.send(searchID)
+
+    try {
+        if (isNaN(id)) {
+            return res.status(400).json({ err: "Numbers only, please!" })
+        } else {
+            const searchID = documents.find(values => values.id == id)
+
+            if (!searchID) {
+                return res.status(404).send();
+            }
+            return res.status(200).send(searchID)
+        }
+    } catch (error) {
+        res.status(500).send({ error: 'Something failed!' })
+    }
 });
 
 // http://localhost:3000/search
@@ -44,28 +65,33 @@ app.post("/search", (req, res) => {
 
     try {
         if (input) {
-            const search = input.toLowerCase();
-
+            const regex = new RegExp(input, 'i');
             const filteredItems = documents.filter((item) => {
-                const result = ([Object.values(item)].toString().includes(search));
-                return (result);
+                return ((Object.values(item)).find(element => regex.test(element)))
             });
 
-            res.send(filteredItems)
+            if (!filteredItems.length) {
+                return res.status(404).send();
+            }
+            return (res.status(200).send(filteredItems))
+
         } else if (field) {
-            const [search] = Object.entries(field)
+            const search = [Object.values(field)]
+            const regex = new RegExp(search, 'i');
 
             const filteredItems = documents.filter((item) => {
-                const result = ([Object.entries(item)].toString().includes(search));
-                return (result);
+                return ((Object.values(item)).find(element => regex.test(element)))
             });
 
-            res.send(filteredItems)
+            if (!filteredItems.length) {
+                return res.status(404).send();
+            }
+            return (res.status(200).send(filteredItems))
         } else {
-            res.send(documents)
+            return res.status(200).send(documents)
         }
     } catch (error) {
-        return res.send(error);
+        res.status(500).send({ error: 'Something failed!' })
     }
 });
 
