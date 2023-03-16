@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+header {
+  background-color: rgb(40, 60, 80);
+  padding: 2px 0px;
+  width: 100%;
+}
+
+h1 {
+  color: rgb(255, 250, 160);
+  text-decoration: underline;
+  text-decoration-color: rgb(243, 152, 116);
+  text-underline-offset: 10px;
+  /* distance of underline from its initial position.*/
+  text-align: center;
+}
+
+.watch-count {
+  margin-top: 0.3rem;
+}
+
+.add-task-btn {
+  margin-top: 1rem;
+  background-color: rgb(40, 60, 80);
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 5%;
+  margin-top: 0.8rem;
+}
+
+ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+li {
+  background-color: rgba(40, 60, 80, 0.105);
+  list-style-type: none;
+  /* To remove bullets from all li*/
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 1rem;
+  padding: 0 2rem;
+}
+
+.task-completed-checkbox {
+  transform: scale(1.8);
+  accent-color: rgb(52, 99, 147);
+  font-size: 2rem;
+  padding: 1px 16px;
+  border-radius: 5%;
+  margin: 0.6rem;
+}
+
+.delete-btn {
+  background-color: rgb(223, 70, 97);
+  font-size: 0.7rem;
+  padding: 1px 16px;
+  border-radius: 5%;
+  margin: 0.6rem;
+}
