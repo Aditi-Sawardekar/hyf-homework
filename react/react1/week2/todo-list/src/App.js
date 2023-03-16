@@ -28,27 +28,27 @@ function App() {
     setTasks((prev) => [...prev, newTask]);
   };
 
-  const handleCheck = (id) => {
-    const taskItem = tasks.map((task) =>
+  const handleCheckTask = (id) => {
+    const taskItems = tasks.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
     );
-    setTasks(taskItem);
+    setTasks(taskItems);
   };
 
-  const handleDelete = (id) => {
-    const taskItem = tasks.filter((task) => task.id !== id);
-    setTasks(taskItem);
+  const handleDeleteTask = (id) => {
+    const taskItems = tasks.filter((task) => task.id !== id);
+    setTasks(taskItems);
   };
 
   return (
     <div className="App">
-      <Header />
+      <Header title="Todo List"/>
       <TimeOnWebsiteCount />
       <AddTask tasks={tasks} handleAddTask={handleAddTask} />
       <ToDoList
         tasks={tasks}
-        handleCheck={handleCheck}
-        handleDelete={handleDelete}
+        handleCheckTask={handleCheckTask}
+        handleDeleteTask={handleDeleteTask}
       />
     </div>
   );

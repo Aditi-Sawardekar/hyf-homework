@@ -1,12 +1,12 @@
 import Task from "./Task";
 
-const ToDoList = ({ tasks, handleCheck, handleDelete }) => {
+const ToDoList = ({ tasks, handleCheckTask, handleDeleteTask }) => {
   const taskList = tasks.map((task) => (
     <Task
       key={task.id}
       task={task}
-      handleCheck={handleCheck}
-      handleDelete={handleDelete}
+      handleCheckTask={handleCheckTask}
+      handleDeleteTask={handleDeleteTask}
     />
   ));
   return (
