@@ -11,7 +11,6 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
   const [date, setDate] = useState("");
-  const [updateDescription, setUpdateDescription] = useState("");
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -25,7 +24,7 @@ function App() {
       }
     };
     (async () => await fetchItems())();
-  }, []);
+  }, [API_URL]);
 
   const addTask = (description, deadline) => {
     const id = tasks.length ? tasks.length + 1 : 1;
@@ -77,16 +76,6 @@ function App() {
     setTasks(taskItems);
   };
 
-  const handleUpdateTask = (id) => {
-    console.log(id);
-    const taskItems = tasks.map((task) => {
-      if (task.id === id) {
-        console.log(task.description);
-        console.log(task.deadline);
-      }
-    });
-  };
-
   return (
     <div className="App">
       <Header title="Todo List" />
@@ -100,10 +89,8 @@ function App() {
       />
       <ToDoList
         tasks={tasks}
-        updateDescription={updateDescription}
         handleCheckTask={handleCheckTask}
         handleDeleteTask={handleDeleteTask}
-        handleUpdateTask={handleUpdateTask}
       />
     </div>
   );
