@@ -1,5 +1,7 @@
 Onion
 Potato
-Tomato
+Capsicum - Modified veggie
 Cabbage
 Spinach
+Pumpkin - Added new veggie
+Broccoli - Added new veggie
