@@ -1,7 +1,5 @@
 Onion
 Potato
-Capsicum - Modified veggie
+Green Peas - Modified veggie from Github
 Cabbage
 Spinach
-Pumpkin - Added new veggie
-Broccoli - Added new veggie
